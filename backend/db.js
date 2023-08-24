@@ -16,9 +16,9 @@ import { Client } from 'pg'
 export const getDb = () => {
     try {
         const client = new Client({
-            user: 'work_trial_user',
-            password: 'lk123je6e9y342a2dccadf5ai5eu5g55mh',
-            database: 'work_trial'
+            user: 'myuser',
+            password: 'mypassword',
+            database: 'mydatabase'
         })
 
         return client

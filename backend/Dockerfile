@@ -13,6 +13,8 @@ RUN npm install
 # Copy the rest of the application code into the container
 COPY backend/ .
 
+# run the startup script
+
 # Expose port 3000 (commonly used for Express apps) to the outside
 EXPOSE 3001
 
