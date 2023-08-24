@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif; /* Use a more modern font for better appearance */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+ul.ul-nav {
+  list-style-type: none;
+  margin: 0 auto; /* Center the ul element */
+  padding: 0;
+  overflow: hidden;
+  background-color: #ff4500; /* Vibrant orange color */
+  width: fit-content; /* Makes the ul only as wide as its content */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Center the list items horizontally */
+}
+
+li.li-nav {
+  float: none; /* No need to float items when using flexbox */
+  margin: 0 30px; /* Add some space between list items */
+}
+
+li.li-nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 4px; /* Rounded corners for the links */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+li.li-nav:hover {
+  background-color: #ff6347; /* Slightly lighter shade of orange for hover */
+}
+
+li.li-nav.active {
+  background-color: #32cd32; /* Vibrant green color for the active page */
+}
