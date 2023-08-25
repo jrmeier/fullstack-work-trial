@@ -16,6 +16,10 @@ COPY --from=build /app/build ./build
 # Copy server.js and other necessary files
 COPY ./frontend/server.js .
 
+# Set the environment variables
+ENV API_ENDPOINT='http://backend:3001'
+ENV PORT=3000
+
 # Expose port 3000 for the server
 EXPOSE 3000
 

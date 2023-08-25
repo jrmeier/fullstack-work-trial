@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react"
 import { UserTable } from './UserTable'
-import { AppContext } from "./AppContext";
+import { AppContext } from "./AppContext"
 
 export const Save = ({id}) => {
     const { newUsers,  saveUser } = useContext(AppContext)

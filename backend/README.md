@@ -1,6 +1,6 @@
-# Frontend
+# Backend
 
-## Frontend setup (development)
+## Setup (for development)
 
 ### Install dependencies
 
@@ -9,8 +9,9 @@ nvm use # or use the node version specified in .nvmrc
 npm install
 ```
 
-### Run the frontend
+### Run the backend
 
 ```bash
 npm run start
 ```
+

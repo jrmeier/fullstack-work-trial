@@ -1,26 +1,17 @@
+require('dotenv').config({path: '../.env'});
+
 import { Client } from 'pg'
-// CREATE ROLE newusername WITH LOGIN PASSWORD 'yourpassword';
-// -- Grant the CONNECT privilege to the database
-// GRANT CONNECT ON DATABASE textface_prod TO newusername;
 
-// -- Grant USAGE on the schema (assuming public schema, adjust if different)
-// GRANT USAGE ON SCHEMA public TO newusername;
-
-// -- Grant CRUD (SELECT, INSERT, UPDATE, DELETE) permissions on all tables in the schema
-// GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO newusername;
-
-// -- Similarly, if there are sequences (for serial/auto-incrementing columns), grant usage on them
-// GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA public TO newusername;
-
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env
 
 export const getDb = () => {
     try {
         const client = new Client({
-            user: 'fullstack_work_trial_user',
-            password: 'SomeB1GlongpworD',
-            database: 'fullstack_work_trial',
-            port: 5432,
-            host: 'postgres'
+            user: DB_USER,
+            password: DB_PASSWORD,
+            database: DB_NAME,
+            port: parseInt(DB_PORT),
+            host: DB_HOST
         })
 
         return client

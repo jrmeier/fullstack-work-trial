@@ -4,9 +4,11 @@ const path = require('path');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
-// TODO: make these env vars
-const PORT = 3000;
-const API_ENDPOINT = 'http://localhost:3001';
+
+// TODO: make these environment variables
+const PORT = process?.env?.PORT
+// const API_ENDPOINT = 'http://backend:3001';
+const API_ENDPOINT = process?.env?.API_ENDPOINT;
 
 
 app.use('/api', createProxyMiddleware({

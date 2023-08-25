@@ -1,36 +1,36 @@
 import { useState, useEffect, useContext } from 'react'
 import './UserTable.css'
-import { AppContext } from './AppContext';
+import { AppContext } from './AppContext'
 
 
 export const UserTable = ({ users, handleSave, loading = false }) => {
-    const [fadeOut, setFadeOut] = useState(false);
+    const [fadeOut, setFadeOut] = useState(false)
     const { notification, showNotification, setShowNotification, setNotification} = useContext(AppContext)
     console.log({notification})
 
     useEffect(() => {
         if (showNotification) {
             const fadeTimer = setTimeout(() => {
-                setFadeOut(true); // Start the fade-out process
-            }, 2500); // Start fading out after 2.5 seconds
+                setFadeOut(true) 
+            }, 2500)
 
             const hideTimer = setTimeout(() => {
-                setShowNotification(false);
+                setShowNotification(false)
                 setNotification("")
                 
-                setFadeOut(false); // Reset fade-out state for next notification
-            }, 3000); // Completely hide after 3 seconds
+                setFadeOut(false)
+            }, 3000)
 
             return () => {
-                clearTimeout(fadeTimer);
-                clearTimeout(hideTimer);
-            };
+                clearTimeout(fadeTimer)
+                clearTimeout(hideTimer)
+            }
         }
-    }, [showNotification, setShowNotification, setNotification]);
+    }, [showNotification, setShowNotification, setNotification])
 
 
     if (loading) {
-        return <div className="loader-container"><div className="loader"></div></div>;
+        return <div className="loader-container"><div className="loader"></div></div>
     }
 
     return (<>

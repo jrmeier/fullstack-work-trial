@@ -1,0 +1,6 @@
+DB_PASSWORD="lk123je6e9y342a2dccadf5ai5eu5g55mh"
+DB_USER="work_trial_user"
+DB_PORT="5432"
+DB_NAME="work_trial"
+DB_HOST="postgres"
+API_PORT="3001"

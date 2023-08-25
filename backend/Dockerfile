@@ -18,5 +18,9 @@ COPY backend/ .
 # Expose port 3000 (commonly used for Express apps) to the outside
 EXPOSE 3001
 
+# set the environment variables
+ENV DB_HOST='postgres'
+ENV API_PORT=3001
+
 # Command to run the application
 CMD [ "npm", "run", "start" ]

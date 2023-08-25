@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { AppContext } from './AppContext'
 import { UserTable } from './UserTable'
 import { useLocation } from 'wouter'

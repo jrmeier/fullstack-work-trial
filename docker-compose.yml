@@ -1,14 +1,14 @@
 version: '3'
 
 services:
-  # react-app:
-  #   build:
-  #     context: .
-  #     dockerfile: frontend/Dockerfile
-  #   ports:
-  #     - "3000:80"
-  #   depends_on:
-  #     - backend
+  react-app:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
   backend:
     build:
       context: .
@@ -20,9 +20,9 @@ services:
   postgres:
     image: postgres:14
     environment:
-      POSTGRES_USER: fullstack_work_trial_user
-      POSTGRES_PASSWORD: SomeB1GlongpworD
-      POSTGRES_DB: fullstack_work_trial
+      POSTGRES_USER: work_trial_user
+      POSTGRES_PASSWORD: lk123je6e9y342a2dccadf5ai5eu5g55mh
+      POSTGRES_DB: work_trial
     ports:
       - "5439:5432"
     volumes:

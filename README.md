@@ -1,8 +1,78 @@
 # Full Stack Work Trial
 
+## Overview
 
-docker build -f /Users/jedmeier/projects/fullstack-work-trial/Dockerfiles/Backend --load -t fullstack_worktrial_backend:latest .
+This is a full stack work trial for a company. The goal is to create a full stack application that allows users to add and view users.
 
-docker run -p 3001:3001 fullstack_worktrial_backend:latest
+## Getting Started
 
-docker build -f /Users/jedmeier/projects/fullstack-work-trial/Dockerfiles/Frontend --load -t fullstack_worktrial_frontend:latest .
+### First Time Setup
+
+```bash
+git clone git@github.com:jrmeier/fullstack-work-trial.git
+```
+
+Next, copy the .env.example file to .env and fill in the values. I've included my own values for the since its not being deployed, but I wouldn't do it for anything real/important. If you change them you'll need to update the init.sql file.
+
+### Running the Application
+
+Make sure you're in the root directory of the project.
+
+```base
+docker-compose up
+```
+
+This will start the application and you should be able to access it at http://localhost:3000
+
+```bash
+
+## Tasks
+
+- [x] Uses React with 3 pages
+- [x] Allows downloading of users from external api
+- [x] Displays properities of users on home
+- [x] Persist data between pages
+- [x] Displays properities of fetched users on fetch
+- [x] Allows adding of users to custom api ()
+- [x] Uses a database to store users
+- [x] Custom server to handle api requests
+- [x] Uses docker and docker-compose to containerize and run the application
+- [x] Bonus for styling
+- [ ] Uses AWS to deploy the application
+
+## AWS Deployment
+
+Unfortunately a bunch of issues with my AWS cli and account and wasn't able to get it deployed.
+
+Here's how I would have done it.
+
+First, I would build the images locally.
+
+```bash
+docker-compose build
+```
+
+Next, I would go to AWS and create 3 new Container Registry's in ECS.
+
+Then I would tag the images with the registry
+
+```bash
+docker tag backend:latest public.ecr.aws/w0h1a7p3/fullstack_worktrial_backend:latest
+docker tag fullstack_worktrial_fontend:latest public.ecr.aws/w0h1a7p3/fullstack_worktrial_fontend:latest
+docker tag postgres:latest public.ecr.aws/w0h1a7p3/postgres:latest
+``````
+
+Next I would push the newly tagged images.
+I would probably use AWS Amplify to deploy the frontend and RDS for the database. In the spirit of this trial, I figured I would do it all in ECS.
+
+```bash
+docker push public.ecr.aws/w0h1a7p3/fullstack_worktrial_backend:latest
+docker push public.ecr.aws/w0h1a7p3/fullstack_worktrial_frontend:latest
+docker push public.ecr.aws/w0h1a7p3/postgres:latest
+```
+
+Once the images are pushed, I would create a new task definition in ECS and use the images from the registry.
+
+Then I would create a new service in ECS and use the task definition I just created.
+
+Once thats running, I should have a url to the frontend.

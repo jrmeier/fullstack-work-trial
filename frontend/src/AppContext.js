@@ -10,7 +10,7 @@ export const AppContext = createContext(defualtAppContext)
 
 
 export const AppContextProvider = (props) => {
-    const [newUsers, setNewUsers] = useState([{name: "Bob"}])
+    const [newUsers, setNewUsers] = useState([])
     const [fetchNewUsersStatus, setFetchNewUsersStatus] = useState('')
     const [existingUsers, setExistingUsers] = useState([])
     const [fetchExistingUsersStatus, setFetchExistingUsersStatus] = useState('')
@@ -74,7 +74,6 @@ export const AppContextProvider = (props) => {
                 console.log("wer have a problem")
                 throw res
             }
-            console.log("added: ",res)
                 setNotification(`Succes: ${user.name} added`)
         } catch (e) {
             console.log("api error: ",e)
