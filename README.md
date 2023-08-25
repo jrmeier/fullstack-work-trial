@@ -41,8 +41,8 @@ This will start the application and you should be able to access it at <http://l
 
 ## AWS Deployment
 
-Unfortunately a bunch of issues with my AWS cli and account and wasn't able to get it deployed.
-I did the steps I think would get the job done, but I have to fix my local aws-cli issues before I can follow through.
+Unfortunately, I had a bunch of issues with my AWS cli and account and wasn't able to get it deployed.
+I did the steps I could which would get the job done.
 
 
 Here's how I would have done it.
