@@ -10,9 +10,10 @@ This is a full stack work trial for a company. The goal is to create a full stac
 
 ```bash
 git clone git@github.com:jrmeier/fullstack-work-trial.git
+cd ./fullstack-work-trial
 ```
 
-Next, copy the .env.example file to .env and fill in the values. I've included my own values for the since its not being deployed, but I wouldn't do it for anything real/important. If you change them you'll need to update the init.sql file.
+NOTE: I've included a .env file with "real" fake values for the since its not being deployed, but I wouldn't do it for anything real/important.
 
 ### Running the Application
 
@@ -31,8 +32,8 @@ This will start the application and you should be able to access it at <http://l
 - [x] Displays properities of users on home
 - [x] Persist data between pages
 - [x] Displays properities of fetched users on fetch
-- [x] Allows adding of users to custom api ()
-- [x] Uses a database to store users
+- [x] Allows adding of users to custom api
+- [x] Uses postgres to persist users data
 - [x] Custom server to handle api requests
 - [x] Uses docker and docker-compose to containerize and run the application
 - [x] Bonus for styling

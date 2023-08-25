@@ -12,6 +12,9 @@ export const Save = ({id}) => {
     },[newUsers, setNewUser,id])
 
 
+    if(!user) return (<div>User Not found</div>)
+
+
     return (
     <>
     <UserTable users={[user]} handleSave={()=>saveUser(user)} />

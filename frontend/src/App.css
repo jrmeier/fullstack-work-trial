@@ -18,7 +18,8 @@ ul.ul-nav {
 
 li.li-nav {
   float: none;
-  margin: 0 30px;
+  margin: 0 0;
+  width: 200px;
 }
 
 li.li-nav a {
@@ -31,6 +32,5 @@ li.li-nav a {
 }
 
 li.li-nav:hover {
-  background-color: #ffa07a;
-  border-color: #ffa07a;
+  background-color: #28a745;
 }

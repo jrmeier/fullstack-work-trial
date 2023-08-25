@@ -31,7 +31,6 @@ export const UserTable = ({ users = [], handleSave=null, loading = false }) => {
     if (loading) {
         return <div className="loader-container"><div className="loader"></div></div>
     }
-    console.log({users})
 
     return (<>
             {Boolean(notification) ? 
