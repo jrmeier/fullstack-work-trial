@@ -9,11 +9,11 @@ RUN npm run build
 FROM node:18
 WORKDIR /app
 
-# this is needed to
+# this is needed to run the express server
 COPY --from=build /app/node_modules ./node_modules
-# Copy the build folder from the build stage
+
 COPY --from=build /app/build ./build
-# Copy server.js and other necessary files
+
 COPY ./frontend/server.js .
 
 # Set the environment variables

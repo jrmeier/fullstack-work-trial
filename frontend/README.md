@@ -1,8 +1,6 @@
 # Frontend
 
-## Frontend setup (development)
-
-### Install dependencies
+## Setup
 
 ```bash
 nvm use # or use the node version specified in .nvmrc
