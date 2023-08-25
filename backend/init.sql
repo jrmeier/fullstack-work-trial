@@ -3,7 +3,7 @@ BEGIN
     -- Check if the role does not exist
     IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'fullstack_work_trial_user') THEN
         -- Create a new user
-        CREATE ROLE fullstack_work_trial_user WITH LOGIN PASSWORD '$SomeB1GlongpworD';
+        CREATE ROLE fullstack_work_trial_user WITH LOGIN PASSWORD 'SomeB1GlongpworD';
     END IF;
 END $$;
 

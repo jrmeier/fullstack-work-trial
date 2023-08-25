@@ -1,6 +1,5 @@
 import express from 'express'
 import { getDb } from './db';
-import { INSERT_USER_SQL } from './sql_statements';
 
 const app = express();
 const PORT = 3001;
@@ -46,7 +45,10 @@ app.post('/users', async (req, res) => {
 
     const values = [user.id, user.name, user.company, user.email, user.phone]
         try {
-            await db.query(INSERT_USER_SQL, values)
+            await db.query(`
+            INSERT INTO users (id, name, company, email, phone)
+            VALUES ($1, $2, $3, $4, $5)
+            `, values)
             msg = {user}
         } catch(e) {
 
