@@ -19,7 +19,7 @@ const startup = async () => {
 }
 
 
-startup()
-.then((x) => console.log('done'))
-.catch((e) =>console.log("error: ",e))
-.finally(()=>process.exit(1))
+// startup()
+// .then((x) => console.log('done'))
+// .catch((e) =>console.log("error: ",e))
+// .finally(()=>process.exit(1))

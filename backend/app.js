@@ -16,6 +16,7 @@ app.use((req, res, next) => {
 
 // Basic route
 app.get('/users', async (req, res) => {
+    try{
     const db = req.db()
     await db.connect()
 
@@ -26,39 +27,51 @@ app.get('/users', async (req, res) => {
     const {rows} = usersQuery
 
     res.status(200).send(rows)
-
+    }
+    catch(e) {
+        console.error(e)
+        res.status(500).send({error: "Unknown Error"})
+    }
 
 });
 
 app.post('/users', async (req, res) => {
-    const db = req.db()
-    await db.connect()
     let msg = {}
     let statusCode = 200
+    try {
+    const db = req.db()
+    await db.connect()
 
     const user = req.body
 
     const values = [user.id, user.name, user.company, user.email, user.phone]
-    try {
-        await db.query(INSERT_USER_SQL, values)
-        msg = {user}
-    } catch(e) {
+        try {
+            await db.query(INSERT_USER_SQL, values)
+            msg = {user}
+        } catch(e) {
 
-        if (e.code === '23505'){
-            msg = {error: "Duplicate ID"}
-            statusCode = 400
+            if (e.code === '23505'){
+                msg = {error: "Duplicate ID"}
+                statusCode = 400
 
-        } else {
-            statusCode = 500
-            console.error(e)
-            msg = {error: "Unknown Error"}
+            } else {
+                statusCode = 500
+                console.error(e)
+                msg = {error: "Unknown Error"}
 
+            }
+    
+        await db.end()
         }
     }
-    
-    await db.end()
+    catch(e) {
+        console.error(e)
+        msg = {error: "Unknown Error"}
+        statusCode = 500
+    }
 
     res.status(statusCode).send(msg)
+
 })
 
 

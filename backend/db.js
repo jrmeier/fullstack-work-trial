@@ -16,9 +16,11 @@ import { Client } from 'pg'
 export const getDb = () => {
     try {
         const client = new Client({
-            user: 'myuser',
-            password: 'mypassword',
-            database: 'mydatabase'
+            user: 'fullstack_work_trial_user',
+            password: 'SomeB1GlongpworD',
+            database: 'fullstack_work_trial',
+            port: 5432,
+            host: 'postgres'
         })
 
         return client
