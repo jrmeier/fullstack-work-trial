@@ -50,7 +50,7 @@ app.post('/users', async (req, res) => {
         VALUES ($1, $2, $3, $4, $5)
         `, values)
         msg = {user}
-        await db.end()
+        // await db.end()
     }
     catch(e) {
         
