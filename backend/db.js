@@ -2,9 +2,14 @@ require('dotenv').config({path: '../.env'});
 
 import { Client } from 'pg'
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env
 
 export const getDb = () => {
+    const DB_USER = process?.env?.DB_USER
+    const DB_PASSWORD = process?.env?.DB_PASSWORD
+    const DB_HOST = process?.env?.DB_HOST
+    const DB_PORT = process?.env?.DB_PORT
+    const DB_NAME = process?.env?.DB_NAME
+    
     try {
         const client = new Client({
             user: DB_USER,
