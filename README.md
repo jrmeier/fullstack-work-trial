@@ -22,9 +22,7 @@ Make sure you're in the root directory of the project.
 docker-compose up
 ```
 
-This will start the application and you should be able to access it at http://localhost:3000
-
-```bash
+This will start the application and you should be able to access it at <http://localhost:3000>
 
 ## Tasks
 
