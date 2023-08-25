@@ -43,14 +43,18 @@ export const AppContextProvider = (props) => {
             setFetchExistingUsersStatus('loading')
             
             const savedUsers = await (await fetch("/api/users/")).json()
+            if(savedUsers.error){
+                throw Error(savedUsers)
+            }
+
             setExistingUsers(savedUsers)
             setFetchExistingUsersStatus('success')
         } catch {
             console.log("error fetching stored users")
             setFetchExistingUsersStatus('error')
+            setNotification("Error: could not fetch stored users")
+            setShowNotification(true)
         }
-
-        setShowNotification(true)
     }
 
     const saveUser = async (user) => {
@@ -64,19 +68,16 @@ export const AppContextProvider = (props) => {
                 email: user.email,
                 phone: user.phone
             }
-            console.log({payload})
             const res = await ( await fetch("/api/users",{ 
                 method: "POST",
                 body: JSON.stringify(payload),
                 headers: {'Content-Type': 'application/json'}
             })).json()
             if (res.error) {
-                console.log("wer have a problem")
                 throw res
             }
                 setNotification(`Succes: ${user.name} added`)
         } catch (e) {
-            console.log("api error: ",e)
 
             if(e.error === "Duplicate ID"){
                 setNotification(`Error: ${user.name} already exists`)

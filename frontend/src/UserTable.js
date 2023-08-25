@@ -3,10 +3,9 @@ import './UserTable.css'
 import { AppContext } from './AppContext'
 
 
-export const UserTable = ({ users, handleSave, loading = false }) => {
+export const UserTable = ({ users = [], handleSave=null, loading = false }) => {
     const [fadeOut, setFadeOut] = useState(false)
     const { notification, showNotification, setShowNotification, setNotification} = useContext(AppContext)
-    console.log({notification})
 
     useEffect(() => {
         if (showNotification) {
@@ -32,6 +31,7 @@ export const UserTable = ({ users, handleSave, loading = false }) => {
     if (loading) {
         return <div className="loader-container"><div className="loader"></div></div>
     }
+    console.log({users})
 
     return (<>
             {Boolean(notification) ? 

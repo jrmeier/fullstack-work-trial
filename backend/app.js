@@ -50,8 +50,10 @@ app.post('/users', async (req, res) => {
         VALUES ($1, $2, $3, $4, $5)
         `, values)
         msg = {user}
+        await db.end()
     }
     catch(e) {
+        
         if (e.code === '23505'){
             msg = {error: "Duplicate ID"}
             statusCode = 400
@@ -62,10 +64,8 @@ app.post('/users', async (req, res) => {
         }
 
         console.error(e)
-        msg = {error: "Unknown Error"}
         statusCode = 500
     }
-    await db.end()
     res.status(statusCode).send(msg)
 
 })
